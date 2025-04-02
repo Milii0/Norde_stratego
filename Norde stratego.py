@@ -67,7 +67,7 @@ st.session_state.last_char2 = char2
 
 # Initialize session state if not already initialized
 if "battle_log" not in st.session_state:
-    st.write(f"DEBUG: initalised battle log")
+    #st.write(f"DEBUG: initalised battle log")
     st.session_state.battle_log = []
     st.session_state.turn = "first"
     st.session_state.fighter1 = characters[char1].copy()
@@ -88,7 +88,7 @@ if "battle_log" not in st.session_state:
 # Update fighter data if the selected character has changed
 if char1_flag == True: #st.session_state.first_name != char1 + "1":
     char1_flag == False
-    st.write(f"DEBUG: entered char1")
+    #st.write(f"DEBUG: entered char1")
     st.session_state.fighter1 = characters[char1].copy()
     st.session_state.first_name = char1 + "1"
     if st.session_state.fighter1["Speed"] > st.session_state.fighter2["Speed"]:
@@ -102,7 +102,7 @@ if char1_flag == True: #st.session_state.first_name != char1 + "1":
 
 if char2_flag == True: #st.session_state.second_name != char2 + "2":
     char2_flag == False
-    st.write(f"DEBUG: entered char2")
+    #st.write(f"DEBUG: entered char2")
     st.session_state.fighter2 = characters[char2].copy()
     st.session_state.second_name = char2 + "2"
     if st.session_state.fighter1["Speed"] > st.session_state.fighter2["Speed"]:
