@@ -177,6 +177,7 @@ for event in st.session_state.battle_log:
 if st.button("Reset Session"):
     st.session_state.clear()
     st.session_state.clear()
+    st.session_state.clear()
 
 # Get memory & CPU usage
 #memory = psutil.virtual_memory()
