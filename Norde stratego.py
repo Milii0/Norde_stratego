@@ -27,7 +27,7 @@ addons = {
     "Defias Bandana": {"HP": 0, "Speed": 0, "Base Attack": 0, "Special": "No damage taken on 4, 6", "Heal": 0, "Damage_Ignore": 0},
     "Cloak of Shadow": {"HP": 0, "Speed": 0, "Base Attack": 0, "Special": "Vanish", "Heal": 0, "Damage_Ignore": 0},
     "Boots of Haste": {"HP": 0, "Speed": 0, "Base Attack": 0, "Special": "Change speed to 7", "Heal": 0, "Damage_Ignore": 0},
-    "GM Claymore": {"HP": 0, "Speed": 0, "Base Attack": 0, "Special": "Big D", "Heal": 0, "Damage_Ignore": 0},
+    "Grand Marshals Claymore": {"HP": 0, "Speed": 0, "Base Attack": 0, "Special": "Big D", "Heal": 0, "Damage_Ignore": 0},
     "Hand of Ragnaros": {"HP": 0, "Speed": 0, "Base Attack": 0, "Special": "1,3,6 hurl fireball. 3 damage to attacker", "Heal": 0, "Damage_Ignore": 0},
     "Rocket Helmet": {"HP": 0, "Speed": 0, "Base Attack": 0, "Special": "Reduce opponents health to 17", "Heal": 0, "Damage_Ignore": 0},
 }
@@ -110,7 +110,7 @@ def calculate_damage(roll, character, character_name, attack_item, defend_item):
             attack += 4
             st.session_state.battle_log.append(f"A giant fireball hurls towards your enemy, dealing 3 damage")
     
-    if "GM Claymore" in attack_item:
+    if "Grand Marshals Claymore" in attack_item:
         attack += 6
         HP_change += 2
         st.session_state.battle_log.append(f"Grand Marshals Claymore adds 6 damage to your attack, and heals for 2!")
