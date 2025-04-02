@@ -51,6 +51,7 @@ def calculate_healing(roll, character, heal): #add weapon?
 
 def calculate_damage(roll, character, character_name, attack_item, defend_item):
     skip = False
+    HP_change = 0
     st.write(f"{roll}, {character}, {character_name}, {attack_item}, {defend_item}")
     if character["Special"] == "Double damage on 2-5":
         if roll[0] in (2, 3, 4, 5):
@@ -98,21 +99,21 @@ def calculate_damage(roll, character, character_name, attack_item, defend_item):
         st.session_state.battle_log.append(f"Pikachu blasts Thunderbolt for 12 damage!!")
     if attack_item == "Pikachu" and defend_item == "Gnomish Electric Field Deflector":
         st.session_state.battle_log.append(f"Pikachu blasts himself for 12 damage :O")
-        #add minus damage  
-
+        HP_change -= 12 #add minus damage 
         
     # Add damage to attacker if needed
     if attack_item == "Hand of Ragnaros":
         if roll[0] in (1, 3, 6):
-            attack += 3
+            attack += 4
             st.session_state.battle_log.append(f"A giant fireball hurls towards your enemy, dealing 3 damage")
         if roll[1] in (1, 3, 6):
-            attack += 3
+            attack += 4
             st.session_state.battle_log.append(f"A giant fireball hurls towards your enemy, dealing 3 damage")
     
     if "GM Claymore" in attack_item:
         attack += 6
-        st.session_state.battle_log.append(f"Grand Marshals Claymore adds 6 damage to your attack!")
+        HP_change += 2
+        st.session_state.battle_log.append(f"Grand Marshals Claymore adds 6 damage to your attack, and heals for 2!")
 
     if "Frostmourne" in attack_item:
         attack += 3
@@ -130,7 +131,7 @@ def calculate_damage(roll, character, character_name, attack_item, defend_item):
             st.session_state.battle_log.append(f"Rhok'delar misses :(")
 
 
-    return attack, skip
+    return attack, skip, HP_change
 
 #def item_effect(attack_item, enemy_type, defend_item)
     #if attack_item is "50% physical reduct" and enemy_type is "Elite Knight" or "Royal Paladin"
@@ -262,7 +263,8 @@ if st.button("Roll Dice for Current Turn"):
         
         roll1 = (random.randint(1, 6), random.randint(1, 6))
         st.markdown(f"# {roll1}")
-        damage1, skip_turn = calculate_damage(roll1, st.session_state.first, st.session_state.first_name, st.session_state.first_item, st.session_state.second_item)
+        damage1, skip_turn, HP_modifier = calculate_damage(roll1, st.session_state.first, st.session_state.first_name, st.session_state.first_item, st.session_state.second_item)
+        st.session_state.first["HP"] += HP_modifier
         st.session_state.second["HP"] -= damage1
         st.session_state.battle_log.append(f"{st.session_state.first_name} rolls {roll1} and deals {damage1} damage. {st.session_state.second_name} HP: {st.session_state.second['HP']}")
 
@@ -285,8 +287,9 @@ if st.button("Roll Dice for Current Turn"):
     else:
         st.session_state.battle_log.append(f"Round {st.session_state.round}: {st.session_state.second_name}")
         roll2 = (random.randint(1, 6), random.randint(1, 6))
-        damage2, skip_turn = calculate_damage(roll2, st.session_state.second, st.session_state.second_name, st.session_state.second_item, st.session_state.first_item)
+        damage2, skip_turn, HP_modifier = calculate_damage(roll2, st.session_state.second, st.session_state.second_name, st.session_state.second_item, st.session_state.first_item)
         st.markdown(f"# {roll2}")
+        st.session_state.second["HP"] += HP_modifier
         st.session_state.first["HP"] -= damage2
         st.session_state.battle_log.append(f"{st.session_state.second_name} rolls {roll2} and deals {damage2} damage. {st.session_state.first_name} HP: {st.session_state.first['HP']}")
 
@@ -318,3 +321,4 @@ for event in st.session_state.battle_log:
 if st.button("Reset Session"):
     st.session_state.clear()
     st.session_state.clear()
+
