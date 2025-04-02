@@ -90,7 +90,7 @@ def calculate_damage(roll, character, character_name, attack_item, defend_item):
         if "The Immovable Object" in defend_item:
             attack = attack
         else:
-            attack += 3
+            attack += 4
             st.session_state.battle_log.append(f"The Unstoppable Force adds 3 damage to your attack!")
 
     #Pikachu and E field deflector effect
