@@ -52,7 +52,7 @@ def calculate_healing(roll, character, heal): #add weapon?
 def calculate_damage(roll, character, character_name, attack_item, defend_item):
     skip = False
     HP_change = 0
-    st.write(f"{roll}, {character}, {character_name}, {attack_item}, {defend_item}")
+    #st.write(f"{roll}, {character}, {character_name}, {attack_item}, {defend_item}")
     if character["Special"] == "Double damage on 2-5":
         if roll[0] in (2, 3, 4, 5):
             roll0 = roll[0] * 2
