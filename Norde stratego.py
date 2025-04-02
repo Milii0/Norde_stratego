@@ -172,7 +172,7 @@ st.markdown(f"### {st.session_state.first_name} HP: {st.session_state.first['HP'
 for event in st.session_state.battle_log:
     st.write(event)
 
-st.write(f"DEBUG: {st.session_state}")
+#st.write(f"DEBUG: {st.session_state}")
 # Reset session state
 if st.button("Reset Session"):
     st.session_state.clear()
