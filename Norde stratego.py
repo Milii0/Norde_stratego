@@ -31,6 +31,7 @@ characters = {
 }
 
 addons = {
+    "None": {"HP": 0, "Speed": 0, "Base Attack": 0, "Special": "None", "Heal": 0},
     "The Immovable Object": {"HP": 0, "Speed": 0, "Base Attack": 0, "Special": "50% physical reduct", "Heal": 0},
     "Gnomish Electric Field Deflector": {"HP": 0, "Speed": 0, "Base Attack": 0, "Special": "Counter Pika", "Heal": 0},
     "Pikachu": {"HP": 0, "Speed": 0, "Base Attack": 0, "Special": "Cute", "Heal": 0},
@@ -147,28 +148,32 @@ def calculate_damage(roll, character, character_name, attack_item, defend_item, 
 #def item_effect(attack_item, enemy_type, defend_item)
     #if attack_item is "50% physical reduct" and enemy_type is "Elite Knight" or "Royal Paladin"
 
-st.title("Battle Simulator")
-st.write("Choose two characters to fight!")
+st.title("Boyz Battle Simulator")
+st.write("Choose your champions!")
 
-# Select Fighter 1
-char1 = st.selectbox("Select Fighter 1", list(characters.keys()))
-item1 = st.selectbox("Select item for Fighter 1", list(addons.keys()))
-if "last_char1" in st.session_state and st.session_state.last_char1 != char1:
-    char1_flag = True
-if "last_item1" in st.session_state and st.session_state.last_item1 != item1:
-    item1_flag = True
-st.session_state.last_char1 = char1
-st.session_state.last_item1 = item1
+col1, col2 = st.columns(2)
 
-# Select Fighter 2
-char2 = st.selectbox("Select Fighter 2", list(characters.keys()))
-item2 = st.selectbox("Select item for Fighter 2", list(addons.keys()))
-if "last_char2" in st.session_state and st.session_state.last_char2 != char2:
-    char2_flag = True
-if "last_item2" in st.session_state and st.session_state.last_item2 != item2:
-    item2_flag = True
-st.session_state.last_char2 = char2
-st.session_state.last_item2 = item2
+with col1:
+    # Select Fighter 1
+    char1 = st.selectbox("Select Fighter 1", list(characters.keys()))
+    item1 = st.selectbox("Select item for Fighter 1", list(addons.keys()))
+    if "last_char1" in st.session_state and st.session_state.last_char1 != char1:
+        char1_flag = True
+    if "last_item1" in st.session_state and st.session_state.last_item1 != item1:
+        item1_flag = True
+    st.session_state.last_char1 = char1
+    st.session_state.last_item1 = item1
+
+with col2:
+    # Select Fighter 2
+    char2 = st.selectbox("Select Fighter 2", list(characters.keys()))
+    item2 = st.selectbox("Select item for Fighter 2", list(addons.keys()))
+    if "last_char2" in st.session_state and st.session_state.last_char2 != char2:
+        char2_flag = True
+    if "last_item2" in st.session_state and st.session_state.last_item2 != item2:
+        item2_flag = True
+    st.session_state.last_char2 = char2
+    st.session_state.last_item2 = item2
 
 
 # Initialize session state if not already initialized
