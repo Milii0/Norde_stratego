@@ -136,8 +136,8 @@ def calculate_damage(roll, character, character_name, attack_item, defend_item):
 #def item_effect(attack_item, enemy_type, defend_item)
     #if attack_item is "50% physical reduct" and enemy_type is "Elite Knight" or "Royal Paladin"
 with st.container():
-    st.title("Battle Simulator")
-    st.write("Choose two characters to fight!")
+    st.title("Boyz Battle Simulator")
+    st.write("Choose your Champion!")
 
 col1, col2, col3 = st.columns(3, gap="medium", vertical_alignment='center')
 
