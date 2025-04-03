@@ -196,8 +196,8 @@ if "battle_log" not in st.session_state:
 
 # Update fighter data if the selected character has changed
 if char1_flag == True or item1_flag == True: #st.session_state.first_name != char1 + "1":
-    char1_flag == False
-    item1_flag == False
+    char1_flag = False
+    item1_flag = False
     #st.write(f"DEBUG: entered char1")
     st.session_state.fighter1 = characters[char1].copy()
     st.session_state.first_name = char1 + "1"
@@ -219,8 +219,8 @@ if char1_flag == True or item1_flag == True: #st.session_state.first_name != cha
         st.session_state.first_name, st.session_state.second_name = char2 + "2", char1 + "1"
 
 if char2_flag == True or item2_flag == True: #st.session_state.second_name != char2 + "2":
-    char2_flag == False
-    item2_flag == False
+    char2_flag = False
+    item2_flag = False
     #st.write(f"DEBUG: entered char2")
     st.session_state.fighter2 = characters[char2].copy()
     st.session_state.second_name = char2 + "2"
