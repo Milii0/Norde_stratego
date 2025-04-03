@@ -22,7 +22,7 @@ addons = {
     "Gnomish Electric Field Deflector": {"HP": 0, "Speed": 0, "Base Attack": 0, "Special": "Counter Pika", "Heal": 0, "Damage_Ignore": 0},
     "Pikachu": {"HP": 0, "Speed": 0, "Base Attack": 0, "Special": "Cute", "Heal": 0, "Damage_Ignore": 0},
     "The Unstoppable Force": {"HP": 0, "Speed": 0, "Base Attack": 0, "Special": "Neutralize ImmObject", "Heal": 0, "Damage_Ignore": 0},
-    "Rhok'delar": {"HP": 2, "Speed": 0, "Base Attack": 0, "Special": "6 to 8 kites", "Heal": 0, "Damage_Ignore": 0},
+    "Rhok'delar": {"HP": 0, "Speed": 0, "Base Attack": 0, "Special": "6 to 8 kites", "Heal": 0, "Damage_Ignore": 0},
     "Frostmourne": {"HP": 0, "Speed": 0, "Base Attack": 0, "Special": "1 freezes", "Heal": 0, "Damage_Ignore": 0},
     "Defias Bandana": {"HP": 0, "Speed": 0, "Base Attack": 0, "Special": "No damage taken on 4, 6", "Heal": 0, "Damage_Ignore": 0},
     "Cloak of Shadow": {"HP": 0, "Speed": 0, "Base Attack": 0, "Special": "Vanish", "Heal": 0, "Damage_Ignore": 0},
