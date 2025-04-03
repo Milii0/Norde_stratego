@@ -135,29 +135,33 @@ def calculate_damage(roll, character, character_name, attack_item, defend_item):
 
 #def item_effect(attack_item, enemy_type, defend_item)
     #if attack_item is "50% physical reduct" and enemy_type is "Elite Knight" or "Royal Paladin"
+with st.container():
+    st.title("Battle Simulator")
+    st.write("Choose two characters to fight!")
 
-st.title("Battle Simulator")
-st.write("Choose two characters to fight!")
+col1, col2, col3 = st.columns(3, gap="medium", vertical_alignment='center')
 
-# Select Fighter 1
-char1 = st.selectbox("Select Fighter 1", list(characters.keys()))
-item1 = st.selectbox("Select item for Fighter 1", list(addons.keys()))
-if "last_char1" in st.session_state and st.session_state.last_char1 != char1:
-    char1_flag = True
-if "last_item1" in st.session_state and st.session_state.last_item1 != item1:
-    item1_flag = True
-st.session_state.last_char1 = char1
-st.session_state.last_item1 = item1
+with col1:
+    # Select Fighter 1
+    char1 = st.selectbox("Select Fighter 1", list(characters.keys()))
+    item1 = st.selectbox("Select item for Fighter 1", list(addons.keys()))
+    if "last_char1" in st.session_state and st.session_state.last_char1 != char1:
+        char1_flag = True
+    if "last_item1" in st.session_state and st.session_state.last_item1 != item1:
+        item1_flag = True
+    st.session_state.last_char1 = char1
+    st.session_state.last_item1 = item1
 
-# Select Fighter 2
-char2 = st.selectbox("Select Fighter 2", list(characters.keys()))
-item2 = st.selectbox("Select item for Fighter 2", list(addons.keys()))
-if "last_char2" in st.session_state and st.session_state.last_char2 != char2:
-    char2_flag = True
-if "last_item2" in st.session_state and st.session_state.last_item2 != item2:
-    item2_flag = True
-st.session_state.last_char2 = char2
-st.session_state.last_item2 = item2
+with col2:
+    # Select Fighter 2
+    char2 = st.selectbox("Select Fighter 2", list(characters.keys()))
+    item2 = st.selectbox("Select item for Fighter 2", list(addons.keys()))
+    if "last_char2" in st.session_state and st.session_state.last_char2 != char2:
+        char2_flag = True
+    if "last_item2" in st.session_state and st.session_state.last_item2 != item2:
+        item2_flag = True
+    st.session_state.last_char2 = char2
+    st.session_state.last_item2 = item2
 
 
 # Initialize session state if not already initialized
